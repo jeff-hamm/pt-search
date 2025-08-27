@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Diego Physical Therapy Providers</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .provider {
+            border: 1px solid #ddd;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .provider h2 {
+            color: #2980b9;
+            margin-top: 0;
+        }
+        .provider-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .rating {
+            font-weight: bold;
+            color: #27ae60;
+        }
+        .distance {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .search-results {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .search-results h3 {
+            color: #8e44ad;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .search-results h3:first-child {
+            margin-top: 0;
+        }
+        .summary {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-top: 15px;
+            font-style: italic;
+        }
+        .top-rated {
+            border-color: #f39c12;
+            background-color: #fef9e7;
+        }
+        .nav {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .nav a {
+            margin: 0 10px;
+            color: #3498db;
+            text-decoration: none;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        .markdown-content {
+            display: none;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .markdown-content.show {
+            display: block;
+        }
+        .markdown-toggle {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .markdown-toggle:hover {
+            background-color: #0056b3;
+        }
+        .quality-score {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 15px;
+            color: white;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .quality-excellent { background-color: #28a745; }
+        .quality-very-good { background-color: #20c997; }
+        .quality-good { background-color: #ffc107; color: #212529; }
+        .quality-fair { background-color: #fd7e14; }
+        .quality-poor { background-color: #dc3545; }
+    </style>
+</head>
+<body>
+    <h1>San Diego Physical Therapy Providers</h1>
+    
+    <div class="nav">
+        <a href="#top-rated">Top Rated</a> |
+        <a href="#closest">Closest</a> |
+        <a href="#all">All Providers</a> |
+        <a href="pt_providers.csv">Download CSV</a>
+    </div>
+
+    <section id="top-rated">
+        <h2>Providers by Quality Score</h2>
+        
+        <div class="provider top-rated">
+            <h2>Select San Diego PT <span class="quality-score quality-excellent">Quality: 10/10</span></h2>
+            <div class="provider-info">
+                <div><strong>Address:</strong> 7425 Mission Valley Rd Ste 201, San Diego, CA 92108</div>
+                <div><strong>Phone:</strong> 619-291-3400</div>
+                <div class="distance"><strong>Distance:</strong> 2.0 miles</div>
+                <div class="rating"><strong>Rating:</strong> 5.0/5 (320 reviews)</div>
+            </div>
+            <button class="markdown-toggle" onclick="toggleMarkdown('select-pt')">View Detailed Report</button>
+            <div id="select-pt" class="markdown-content"></div>
+        </div>
+
+        <div class="provider top-rated">
+            <h2>San Diego Elite Physical Therapy <span class="quality-score quality-excellent">Quality: 9/10</span></h2>
+            <div class="provider-info">
+                <div><strong>Address:</strong> 7801 Mission Center CT Ste 330, San Diego, CA 92108</div>
+                <div><strong>Phone:</strong> 619-489-3130</div>
+                <div class="distance"><strong>Distance:</strong> 1.7 miles</div>
+                <div class="rating"><strong>Rating:</strong> 5.0/5 (56 reviews)</div>
+            </div>
+            <button class="markdown-toggle" onclick="toggleMarkdown('sd-elite')">View Detailed Report</button>
+            <div id="sd-elite" class="markdown-content"></div>
+        </div>
+
+        <div class="provider top-rated">
+            <h2>Catalyst Physical Therapy and Wellness <span class="quality-score quality-excellent">Quality: 9/10</span></h2>
+            <div class="provider-info">
+                <div><strong>Address:</strong> 1333 Camino Del Rio S Ste 103, San Diego, CA 92108</div>
+                <div><strong>Phone:</strong> 619-501-2195</div>
+                <div class="distance"><strong>Distance:</strong> 1.3 miles</div>
+                <div class="rating"><strong>Rating:</strong> 4.9/5 (513+ total reviews)</div>
+            </div>
+            <button class="markdown-toggle" onclick="toggleMarkdown('catalyst')">View Detailed Report</button>
+            <div id="catalyst" class="markdown-content"></div>
+        </div>
+
+        <div class="provider top-rated">
+            <h2>Water and Sports PT <span class="quality-score quality-very-good">Quality: 8/10</span></h2>
+            <div class="provider-info">
+                <div><strong>Address:</strong> 3974 Dove St, San Diego, CA 92103</div>
+                <div><strong>Phone:</strong> 858-488-3597</div>
+                <div class="distance"><strong>Distance:</strong> 0.5 miles</div>
+                <div class="rating"><strong>Rating:</strong> 4.7/5 (345+ reviews)</div>
+                <div><strong>Website:</strong> <a href="https://www.waterandsportspt.com/">waterandsportspt.com</a></div>
+            </div>
+            <button class="markdown-toggle" onclick="toggleMarkdown('water-sports')">View Detailed Report</button>
+            <div id="water-sports" class="markdown-content"></div>
+        </div>
+
+        <div class="provider top-rated">
+            <h2>Innovative Physical Therapy <span class="quality-score quality-very-good">Quality: 8/10</span></h2>
+            <div class="provider-info">
+                <div><strong>Address:</strong> 5030 Camino De La Siesta Ste 220, San Diego, CA 92108</div>
+                <div><strong>Phone:</strong> 619-260-0750</div>
+                <div class="distance"><strong>Distance:</strong> 1.1 miles</div>
+                <div class="rating"><strong>Rating:</strong> 4.9/5 (200+ reviews)</div>
+            </div>
+            <button class="markdown-toggle" onclick="toggleMarkdown('innovative')">View Detailed Report</button>
+            <div id="innovative" class="markdown-content"></div>
+        </div>
+
+        <div class="provider top-rated">
+            <h2>Nexus Physical Therapy <span class="quality-score quality-very-good">Quality: 8/10</span></h2>
+            <div class="provider-info">
+                <div><strong>Address:</strong> 5353 Mission Center Rd Ste 221, San Diego, CA 92108</div>
+                <div><strong>Phone:</strong> 619-325-0736</div>
+                <div class="distance"><strong>Distance:</strong> 1.7 miles</div>
+                <div class="rating"><strong>Rating:</strong> 5.0/5 (34 reviews)</div>
+            </div>
+            <button class="markdown-toggle" onclick="toggleMarkdown('nexus')">View Detailed Report</button>
+            <div id="nexus" class="markdown-content"></div>
+        </div>
+
+        <div class="provider top-rated">
+            <h2>Rise Physical Therapy <span class="quality-score quality-very-good">Quality: 8/10</span></h2>
+            <div class="provider-info">
+                <div><strong>Address:</strong> 4101 30th St # B, San Diego, CA 92104</div>
+                <div><strong>Phone:</strong> 858-755-5200</div>
+                <div class="distance"><strong>Distance:</strong> 1.8 miles</div>
+                <div class="rating"><strong>Rating:</strong> 4.7/5 (139+ reviews)</div>
+                <div><strong>Website:</strong> <a href="https://www.risephysicaltherapy.com/">risephysicaltherapy.com</a></div>
+            </div>
+            <button class="markdown-toggle" onclick="toggleMarkdown('rise')">View Detailed Report</button>
+            <div id="rise" class="markdown-content"></div>
+        </div>
+
+        <div class="provider">
+            <h2>Coast PT and Sports Medicine <span class="quality-score quality-good">Quality: 7/10</span></h2>
+            <div class="provider-info">
+                <div><strong>Address:</strong> 7840 Mission Center CT Ste 103, San Diego, CA 92108</div>
+                <div><strong>Phone:</strong> 619-294-3644</div>
+                <div class="distance"><strong>Distance:</strong> 1.8 miles</div>
+                <div class="rating"><strong>Rating:</strong> 5.0/5 (4 reviews)</div>
+                <div><strong>Website:</strong> coastpt.net</div>
+            </div>
+            <button class="markdown-toggle" onclick="toggleMarkdown('coast')">View Detailed Report</button>
+            <div id="coast" class="markdown-content"></div>
+        </div>
+
+        <div class="provider">
+            <h2>EBS Early Intervention CA <span class="quality-score quality-good">Quality: 6/10</span></h2>
+            <div class="provider-info">
+                <div><strong>Address:</strong> 411 Camino Del Rio S Ste 101, San Diego, CA 92108</div>
+                <div><strong>Phone:</strong> 800-578-7906</div>
+                <div class="distance"><strong>Distance:</strong> 0.8 miles</div>
+                <div class="rating"><strong>Rating:</strong> 5.0/5 (1 review - Pediatric focus)</div>
+            </div>
+            <button class="markdown-toggle" onclick="toggleMarkdown('ebs')">View Detailed Report</button>
+            <div id="ebs" class="markdown-content"></div>
+        </div>
+    </section>
+
+    <section id="closest">
+        <h2>Closest Providers</h2>
+        
+        <div class="provider">
+            <h2>Developmental Therapy Center</h2>
+            <div class="provider-info">
+                <div><strong>Address:</strong> 3770 4th Ave, San Diego, CA 92103</div>
+                <div><strong>Phone:</strong> 619-291-3515</div>
+                <div class="distance"><strong>Distance:</strong> 0.2 miles</div>
+                <div><strong>Network:</strong> In-network</div>
+            </div>
+            <div class="summary">
+                <strong>Summary:</strong> Speech/OT clinic - no PT reviews found
+            </div>
+            <p><a href="provider_details/01_developmental_therapy_center.md">View detailed report</a></p>
+        </div>
+
+        <div class="provider">
+            <h2>Eggleton Langton PT Mgmt Svs</h2>
+            <div class="provider-info">
+                <div><strong>Address:</strong> 4060 4th Ave Ste 206, San Diego, CA 92103</div>
+                <div><strong>Phone:</strong> 619-299-5246</div>
+                <div class="distance"><strong>Distance:</strong> 0.2 miles</div>
+                <div><strong>Network:</strong> In-network</div>
+            </div>
+            <div class="summary">
+                <strong>Summary:</strong> No reviews found - established practice
+            </div>
+            <p><a href="provider_details/02_eggleton_langton_pt.md">View detailed report</a></p>
+        </div>
+    </section>
+
+    <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd;">
+        <p><em>Data compiled from web search results - Last updated: August 27, 2025</em></p>
+        <p><strong>Note:</strong> This analysis is in progress. Additional providers will be added as research continues.</p>
+    </footer>
+
+    <script>
+        // Markdown content for each provider
+        const markdownContent = {
+            'select-pt': `# Select San Diego PT - Search Results
+
+**Provider:** Select San Diego PT  
+**Address:** 7425 Mission Valley Rd Ste 201, San Diego, CA 92108  
+**Phone:** 619-291-3400  
+**Distance:** 2.0 miles  
+**Network Status:** In-network  
+**Reviews:** 5.0/5 (320 reviews)  
+
+## Search Results
+
+### birdeye.com
+Select Physical Therapy has a 5 star rating with 320 reviews. At Select Physical Therapy, our experienced clinical team will design an individualized plan of care that aligns with your specific goals in mind.
+
+### healthgrades.com
+Dr. Alexander Woehlbrandt, DPT is a physical therapist in San Diego, CA. Likelihood of recommending Dr. Woehlbrandt to family and friends is 5 out of 5
+
+## Summary
+Excellent 5.0 rating with 320 reviews - experienced clinical team with individualized care plans`,
+
+            'sd-elite': `# San Diego Elite Physical Therapy - Search Results
+
+**Provider:** San Diego Elite Physical Therapy  
+**Address:** 7801 Mission Center CT Ste 330, San Diego, CA 92108  
+**Phone:** 619-489-3130  
+**Distance:** 1.7 miles  
+**Network Status:** In-network  
+**Reviews:** 5.0/5 (56 reviews) - Specializes in manual therapy  
+
+## Search Results
+
+### yelp.com
+Rating 5.0(56) San Diego Elite Physical Therapy is top notch. I was bedridden for about 2 months with a spine/disc infection and on and off back spasms throughout.
+
+### mapquest.com
+San Diego Elite Physical Therapy offers specialized services in Manual Physical Therapy, focusing on hands-on techniques to enhance muscle and joint function
+
+## Summary
+Perfect 5-star rating - specializes in manual therapy techniques`,
+
+            'catalyst': `# Catalyst Physical Therapy and Wellness - Search Results
+
+**Provider:** Catalyst Physical Therapy and Wellness  
+**Address:** 1333 Camino Del Rio S Ste 103, San Diego, CA 92108  
+**Phone:** 619-501-2195  
+**Distance:** 1.3 miles  
+**Network Status:** In-network  
+**Reviews:** 4.9/5 (221 Yelp reviews, 292 Google reviews)  
+
+## Search Results
+
+### yelp.com
+Rating 4.9(221) CATALYST PHYSICAL THERAPY AND WELLNESS, 1333 Camino Del Rio S, Ste 103, San Diego, CA 92108, 64 Photos, Mon - 7:00 am - 8:00 pm
+
+### fitnesshub.ai
+Catalyst Physical Therapy and Wellness is verified on FitnessHub.ai with 292 authentic Google reviews and a 4.9/5 rating.
+
+## Summary
+Excellent reviews across multiple platforms - highly rated clinic with comprehensive services`,
+
+            'water-sports': `# Water and Sports PT - Search Results
+
+**Provider:** Water and Sports PT  
+**Address:** 3974 Dove St, San Diego, CA 92103  
+**Phone:** 858-488-3597  
+**Distance:** 0.5 miles  
+**Network Status:** In-network  
+**Website:** https://www.waterandsportspt.com/  
+**Reviews:** 4.7/5 (345 reviews on Yelp, 52 reviews specific location)  
+
+## Search Results
+
+### yelp.com
+Rating 4.7(345) Water & Sports Physical Therapy has an average rating of 4.7 from 345 reviews. Most customers are generally satisfied.
+
+### linkedin.com
+Water & Sports Physical Therapy, Inc. specializes in using water as an adjunct to highly skilled hands on therapy. Official physical therapists of the San Diego Padres. 8 Locations throughout San Diego.
+
+## Summary
+Excellent reviews - Official PT for San Diego Padres, specializes in aquatic therapy`,
+
+            'innovative': `# Innovative Physical Therapy - Search Results
+
+**Provider:** Innovative Physical Therapy  
+**Address:** 5030 Camino De La Siesta Ste 220, San Diego, CA 92108  
+**Phone:** 619-260-0750  
+**Distance:** 1.1 miles  
+**Network Status:** In-network  
+**Reviews:** 4.9/5 (84 reviews, 122 Google reviews) - 35+ years in business  
+
+## Search Results
+
+### reviewsonmywebsite.com
+Innovative Physical Therapy at 5030 Camino De La Siesta #220, San Diego, California has 4.9 stars! Read reviews from 84 customers
+
+### yellowpages.com
+Innovative Physical Therapy. 35 Years. in Business · Physical Therapy
+
+## Summary
+Excellent reviews - 35+ years in business, highly rated across multiple platforms`,
+
+            'nexus': `# Nexus Physical Therapy - Search Results
+
+**Provider:** Nexus Physical Therapy  
+**Address:** 5353 Mission Center Rd Ste 221, San Diego, CA 92108  
+**Phone:** 619-325-0736  
+**Distance:** 1.7 miles  
+**Network Status:** In-network  
+**Reviews:** 5.0/5 (34 reviews)  
+
+## Search Results
+
+### yelp.com
+Rating 5.0(34) More info about Nexus Physical Therapy. 5353 Mission Center Rd. Ste 120. San Diego, CA 92108. Mission Valley.
+
+### yellowpages.com
+Get reviews, hours, directions, coupons and more for Nexus Physical Therapy.
+
+## Summary
+Perfect 5.0 rating with 34 reviews - highly rated clinic in Mission Valley`,
+
+            'rise': `# Rise Physical Therapy - Search Results
+
+**Provider:** Rise Physical Therapy  
+**Address:** 4101 30th St # B, San Diego, CA 92104  
+**Phone:** 858-755-5200  
+**Distance:** 1.8 miles  
+**Network Status:** In-network  
+**Website:** https://www.risephysicaltherapy.com/  
+**Reviews:** 4.7/5 (23 reviews) - 1-on-1 therapy, no aides  
+
+## Search Results
+
+### risephysicaltherapy.com
+San Diego's Premier Physical Therapy Destination. RISE offers 1-on-1 physical therapy treatment services - unlike most PT clinics, RISE does not use aides or assistants.
+
+## Summary
+Excellent reviews - 1-on-1 treatment with no assistants, established 2014`,
+
+            'coast': `# Coast PT and Sports Medicine - Search Results
+
+**Provider:** Coast PT and Sports Medicine  
+**Address:** 7840 Mission Center CT Ste 103, San Diego, CA 92108  
+**Phone:** 619-294-3644  
+**Distance:** 1.8 miles  
+**Network Status:** In-network  
+**Website:** coastpt.net  
+**Reviews:** 5.0/5 (4 reviews)  
+
+## Search Results
+
+### yahoo.com
+Coast Physical Therapy & Sports Medicine Physical Therapy 5.0 4 reviews. Our office specializes in a wide variety of Physical Therapy & Sports Medicine treatments.
+
+### Recent Reviews
+- Sonia D. (07/23/24): "Had a rotator cuff surgery last year... Ashley was wonderful!"
+- Keith K. (08/05/22): "If you want the best in physical therapy, Coast is the place you want to go."
+
+## Summary
+Perfect 5.0 rating with excellent recent reviews - specializes in orthopedics, sports medicine, and post-operative rehabilitation`,
+
+            'ebs': `# EBS Early Intervention CA - Search Results
+
+**Provider:** EBS Early Intervention CA  
+**Address:** 411 Camino Del Rio S Ste 101, San Diego, CA 92108  
+**Phone:** 800-578-7906  
+**Distance:** 0.8 miles  
+**Network Status:** In-network  
+**Reviews:** 5.0/5 (1 review) - Pediatric focus  
+
+## Search Results
+
+### yelp.com
+Rating 5.0(1) We have been working with Ms. Jayme for almost a year for speech therapy for our 2 year old son. She comes to our house for weekly sessions.
+
+## Summary
+Pediatric-focused practice with excellent reviews`
+        };
+
+        function toggleMarkdown(providerId) {
+            const element = document.getElementById(providerId);
+            const button = element.previousElementSibling;
+            
+            if (element.classList.contains('show')) {
+                element.classList.remove('show');
+                button.textContent = 'View Detailed Report';
+            } else {
+                // Hide all other open markdown content
+                document.querySelectorAll('.markdown-content.show').forEach(el => {
+                    el.classList.remove('show');
+                    el.previousElementSibling.textContent = 'View Detailed Report';
+                });
+                
+                // Show this one
+                element.innerHTML = marked.parse(markdownContent[providerId]);
+                element.classList.add('show');
+                button.textContent = 'Hide Detailed Report';
+            }
+        }
+    </script>
+
+</body>
+</html>
