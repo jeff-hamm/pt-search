@@ -209,6 +209,48 @@
         .markdown-content strong {
             color: var(--color-white);
         }
+        
+        .address-link, .phone-link {
+            color: var(--color-pink);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .address-link:hover, .phone-link:hover {
+            color: var(--color-pink-light);
+            text-decoration: underline;
+        }
+        
+        .map-toggle {
+            background: linear-gradient(135deg, var(--color-gray2) 0%, var(--color-gray3) 100%);
+            color: var(--color-text);
+            border: 1px solid var(--color-gray4);
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.7em;
+            margin-left: 8px;
+            transition: all 0.2s ease;
+        }
+        
+        .map-toggle:hover {
+            background: linear-gradient(135deg, var(--color-gray3) 0%, var(--color-gray4) 100%);
+        }
+        
+        .map-container {
+            display: none;
+            margin-top: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--color-gray4);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -239,8 +281,14 @@
         <tbody>
             <tr>
                 <td>Select San Diego PT</td>
-                <td>7425 Mission Valley Rd Ste 201, San Diego, CA 92108</td>
-                <td class="phone">619-291-3400</td>
+                <td>
+                    <a href="https://maps.google.com/?q=7425+Mission+Valley+Rd+Ste+201,+San+Diego,+CA+92108" target="_blank" class="address-link">7425 Mission Valley Rd Ste 201, San Diego, CA 92108</a>
+                    <button class="map-toggle" onclick="toggleMap('select-pt-map')">📍 Map</button>
+                    <div id="select-pt-map" class="map-container">
+                        <iframe src="https://maps.google.com/maps?q=7425+Mission+Valley+Rd+Ste+201,+San+Diego,+CA+92108&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </td>
+                <td class="phone"><a href="tel:619-291-3400" class="phone-link">619-291-3400</a></td>
                 <td class="distance">2.0 miles</td>
                 <td>5.0/5 (320 reviews) - Experienced clinical team</td>
                 <td><span class="quality-badge quality-10">10</span></td>
@@ -249,8 +297,14 @@
             </tr>
             <tr>
                 <td>San Diego Elite Physical Therapy</td>
-                <td>7801 Mission Center CT Ste 330, San Diego, CA 92108</td>
-                <td class="phone">619-489-3130</td>
+                <td>
+                    <a href="https://maps.google.com/?q=7801+Mission+Center+CT+Ste+330,+San+Diego,+CA+92108" target="_blank" class="address-link">7801 Mission Center CT Ste 330, San Diego, CA 92108</a>
+                    <button class="map-toggle" onclick="toggleMap('sd-elite-map')">📍 Map</button>
+                    <div id="sd-elite-map" class="map-container">
+                        <iframe src="https://maps.google.com/maps?q=7801+Mission+Center+CT+Ste+330,+San+Diego,+CA+92108&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </td>
+                <td class="phone"><a href="tel:619-489-3130" class="phone-link">619-489-3130</a></td>
                 <td class="distance">1.7 miles</td>
                 <td>5.0/5 (56 reviews) - Manual therapy specialists</td>
                 <td><span class="quality-badge quality-9">9</span></td>
@@ -259,8 +313,14 @@
             </tr>
             <tr>
                 <td>Catalyst Physical Therapy and Wellness</td>
-                <td>1333 Camino Del Rio S Ste 103, San Diego, CA 92108</td>
-                <td class="phone">619-501-2195</td>
+                <td>
+                    <a href="https://maps.google.com/?q=1333+Camino+Del+Rio+S+Ste+103,+San+Diego,+CA+92108" target="_blank" class="address-link">1333 Camino Del Rio S Ste 103, San Diego, CA 92108</a>
+                    <button class="map-toggle" onclick="toggleMap('catalyst-map')">📍 Map</button>
+                    <div id="catalyst-map" class="map-container">
+                        <iframe src="https://maps.google.com/maps?q=1333+Camino+Del+Rio+S+Ste+103,+San+Diego,+CA+92108&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </td>
+                <td class="phone"><a href="tel:619-501-2195" class="phone-link">619-501-2195</a></td>
                 <td class="distance">1.3 miles</td>
                 <td>4.9/5 (513+ total reviews)</td>
                 <td><span class="quality-badge quality-9">9</span></td>
@@ -269,8 +329,14 @@
             </tr>
             <tr>
                 <td>Water and Sports PT</td>
-                <td>3974 Dove St, San Diego, CA 92103</td>
-                <td class="phone">858-488-3597</td>
+                <td>
+                    <a href="https://maps.google.com/?q=3974+Dove+St,+San+Diego,+CA+92103" target="_blank" class="address-link">3974 Dove St, San Diego, CA 92103</a>
+                    <button class="map-toggle" onclick="toggleMap('water-sports-map')">📍 Map</button>
+                    <div id="water-sports-map" class="map-container">
+                        <iframe src="https://maps.google.com/maps?q=3974+Dove+St,+San+Diego,+CA+92103&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </td>
+                <td class="phone"><a href="tel:858-488-3597" class="phone-link">858-488-3597</a></td>
                 <td class="distance">0.5 miles</td>
                 <td>4.7/5 (345+ reviews) - Official Padres PT</td>
                 <td><span class="quality-badge quality-8">8</span></td>
@@ -279,8 +345,14 @@
             </tr>
             <tr>
                 <td>Innovative Physical Therapy</td>
-                <td>5030 Camino De La Siesta Ste 220, San Diego, CA 92108</td>
-                <td class="phone">619-260-0750</td>
+                <td>
+                    <a href="https://maps.google.com/?q=5030+Camino+De+La+Siesta+Ste+220,+San+Diego,+CA+92108" target="_blank" class="address-link">5030 Camino De La Siesta Ste 220, San Diego, CA 92108</a>
+                    <button class="map-toggle" onclick="toggleMap('innovative-map')">📍 Map</button>
+                    <div id="innovative-map" class="map-container">
+                        <iframe src="https://maps.google.com/maps?q=5030+Camino+De+La+Siesta+Ste+220,+San+Diego,+CA+92108&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </td>
+                <td class="phone"><a href="tel:619-260-0750" class="phone-link">619-260-0750</a></td>
                 <td class="distance">1.1 miles</td>
                 <td>4.9/5 (200+ reviews) - 35+ years in business</td>
                 <td><span class="quality-badge quality-8">8</span></td>
@@ -289,8 +361,14 @@
             </tr>
             <tr>
                 <td>Nexus Physical Therapy</td>
-                <td>5353 Mission Center Rd Ste 221, San Diego, CA 92108</td>
-                <td class="phone">619-325-0736</td>
+                <td>
+                    <a href="https://maps.google.com/?q=5353+Mission+Center+Rd+Ste+221,+San+Diego,+CA+92108" target="_blank" class="address-link">5353 Mission Center Rd Ste 221, San Diego, CA 92108</a>
+                    <button class="map-toggle" onclick="toggleMap('nexus-map')">📍 Map</button>
+                    <div id="nexus-map" class="map-container">
+                        <iframe src="https://maps.google.com/maps?q=5353+Mission+Center+Rd+Ste+221,+San+Diego,+CA+92108&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </td>
+                <td class="phone"><a href="tel:619-325-0736" class="phone-link">619-325-0736</a></td>
                 <td class="distance">1.7 miles</td>
                 <td>5.0/5 (34 reviews)</td>
                 <td><span class="quality-badge quality-8">8</span></td>
@@ -299,8 +377,14 @@
             </tr>
             <tr>
                 <td>Rise Physical Therapy</td>
-                <td>4101 30th St # B, San Diego, CA 92104</td>
-                <td class="phone">858-755-5200</td>
+                <td>
+                    <a href="https://maps.google.com/?q=4101+30th+St+B,+San+Diego,+CA+92104" target="_blank" class="address-link">4101 30th St # B, San Diego, CA 92104</a>
+                    <button class="map-toggle" onclick="toggleMap('rise-map')">📍 Map</button>
+                    <div id="rise-map" class="map-container">
+                        <iframe src="https://maps.google.com/maps?q=4101+30th+St+B,+San+Diego,+CA+92104&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </td>
+                <td class="phone"><a href="tel:858-755-5200" class="phone-link">858-755-5200</a></td>
                 <td class="distance">1.8 miles</td>
                 <td>4.7/5 (139+ reviews) - 1-on-1 therapy</td>
                 <td><span class="quality-badge quality-8">8</span></td>
@@ -309,8 +393,14 @@
             </tr>
             <tr>
                 <td>Functionsmart</td>
-                <td>2727 Camino Del Rio S Ste 102, San Diego, CA 92108</td>
-                <td class="phone">858-452-0282</td>
+                <td>
+                    <a href="https://maps.google.com/?q=2727+Camino+Del+Rio+S+Ste+102,+San+Diego,+CA+92108" target="_blank" class="address-link">2727 Camino Del Rio S Ste 102, San Diego, CA 92108</a>
+                    <button class="map-toggle" onclick="toggleMap('functionsmart-map')">📍 Map</button>
+                    <div id="functionsmart-map" class="map-container">
+                        <iframe src="https://maps.google.com/maps?q=2727+Camino+Del+Rio+S+Ste+102,+San+Diego,+CA+92108&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </td>
+                <td class="phone"><a href="tel:858-452-0282" class="phone-link">858-452-0282</a></td>
                 <td class="distance">2.1 miles</td>
                 <td>5.0/5 (12 reviews) - Decade+ experience with Gino & Renee</td>
                 <td><span class="quality-badge quality-8">8</span></td>
@@ -318,114 +408,36 @@
                     <div id="functionsmart" class="markdown-content"></div></td>
             </tr>
             <tr>
-                <td>Coast PT and Sports Medicine</td>
-                <td>7840 Mission Center CT Ste 103, San Diego, CA 92108</td>
-                <td class="phone">619-294-3644</td>
-                <td class="distance">1.8 miles</td>
-                <td>5.0/5 (4 reviews) - Excellent recent reviews</td>
-                <td><span class="quality-badge quality-7">7</span></td>
-                <td><button class="markdown-toggle" onclick="toggleMarkdown('coast')">View Report</button>
-                    <div id="coast" class="markdown-content"></div></td>
+                <td>Action Physical Therapy and Rehab</td>
+                <td>
+                    <a href="https://maps.google.com/?q=3033+5th+Ave+Ste+410,+San+Diego,+CA+92103" target="_blank" class="address-link">3033 5th Ave Ste 410, San Diego, CA 92103</a>
+                    <button class="map-toggle" onclick="toggleMap('action-map')">📍 Map</button>
+                    <div id="action-map" class="map-container">
+                        <iframe src="https://maps.google.com/maps?q=3033+5th+Ave+Ste+410,+San+Diego,+CA+92103&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </td>
+                <td class="phone"><a href="tel:619-228-9668" class="phone-link">619-228-9668</a></td>
+                <td class="distance">2.2 miles</td>
+                <td>5.0/5 (30+ reviews) - Dr. Dan Walker highly praised</td>
+                <td><span class="quality-badge quality-8">8</span></td>
+                <td><button class="markdown-toggle" onclick="toggleMarkdown('action')">View Report</button>
+                    <div id="action" class="markdown-content"></div></td>
             </tr>
             <tr>
-                <td>Kara Dodds and Associates</td>
-                <td>7840 Mission Center CT Ste 200, San Diego, CA 92108</td>
-                <td class="phone">619-692-0622</td>
-                <td class="distance">1.8 miles</td>
-                <td>4.2/5 (60+ reviews) - Pediatric specialist since 2001</td>
-                <td><span class="quality-badge quality-7">7</span></td>
-                <td><button class="markdown-toggle" onclick="toggleMarkdown('kara-dodds')">View Report</button>
-                    <div id="kara-dodds" class="markdown-content"></div></td>
-            </tr>
-            <tr>
-                <td>Spinezone Medical Fitness</td>
-                <td>7525 Metropolitan Dr Ste 306, San Diego, CA 92108</td>
-                <td class="phone">844-316-7979</td>
-                <td class="distance">2.0 miles</td>
-                <td>Positive reviews (48+ comments) - 15+ years experience</td>
-                <td><span class="quality-badge quality-7">7</span></td>
-                <td><button class="markdown-toggle" onclick="toggleMarkdown('spinezone')">View Report</button>
-                    <div id="spinezone" class="markdown-content"></div></td>
-            </tr>
-            <tr>
-                <td>EBS Early Intervention CA</td>
-                <td>411 Camino Del Rio S Ste 101, San Diego, CA 92108</td>
-                <td class="phone">800-578-7906</td>
-                <td class="distance">0.8 miles</td>
-                <td>5.0/5 (1 review) - Pediatric focus</td>
-                <td><span class="quality-badge quality-6">6</span></td>
-                <td><button class="markdown-toggle" onclick="toggleMarkdown('ebs')">View Report</button>
-                    <div id="ebs" class="markdown-content"></div></td>
-            </tr>
-            <tr>
-                <td>Naval Hsp/camp Pendleton/pro Fee</td>
-                <td>34800 Bob Wilson Dr, San Diego, CA 92134</td>
-                <td class="phone">619-532-9795</td>
-                <td class="distance">1.7 miles</td>
-                <td>No reviews - Military facility</td>
-                <td><span class="quality-badge quality-4">4</span></td>
-                <td><button class="markdown-toggle" onclick="toggleMarkdown('naval')">View Report</button>
-                    <div id="naval" class="markdown-content"></div></td>
-            </tr>
-            <tr>
-                <td>One-on-one Physical Therapy</td>
-                <td>1233 Camino Del Rio S Ste 283, San Diego, CA 92108</td>
-                <td class="phone">949-307-4654</td>
-                <td class="distance">1.2 miles</td>
-                <td>Limited reviews found</td>
-                <td><span class="quality-badge quality-4">4</span></td>
-                <td><button class="markdown-toggle" onclick="toggleMarkdown('one-on-one')">View Report</button>
-                    <div id="one-on-one" class="markdown-content"></div></td>
-            </tr>
-            <tr>
-                <td>New Life Physical Therapy Services</td>
-                <td>2340 4th Ave, San Diego, CA 92101</td>
-                <td class="phone">864-244-3626</td>
-                <td class="distance">1.3 miles</td>
-                <td>Limited online presence</td>
-                <td><span class="quality-badge quality-3">3</span></td>
-                <td><button class="markdown-toggle" onclick="toggleMarkdown('new-life')">View Report</button>
-                    <div id="new-life" class="markdown-content"></div></td>
-            </tr>
-            <tr>
-                <td>Total Rehab and Wellness</td>
-                <td>5971 University Ave Ste 3, San Diego, CA 92115</td>
-                <td class="phone">619-286-4219</td>
-                <td class="distance">0.5 miles</td>
-                <td>No specific reviews found</td>
-                <td><span class="quality-badge quality-3">3</span></td>
-                <td><button class="markdown-toggle" onclick="toggleMarkdown('total-rehab')">View Report</button>
-                    <div id="total-rehab" class="markdown-content"></div></td>
-            </tr>
-            <tr>
-                <td>Eggleton Langton PT Mgmt Svs</td>
-                <td>4060 4th Ave Ste 206, San Diego, CA 92103</td>
-                <td class="phone">619-299-5246</td>
-                <td class="distance">0.2 miles</td>
-                <td>No reviews found - established practice</td>
-                <td><span class="quality-badge quality-3">3</span></td>
-                <td><button class="markdown-toggle" onclick="toggleMarkdown('eggleton')">View Report</button>
-                    <div id="eggleton" class="markdown-content"></div></td>
-            </tr>
-            <tr>
-                <td>Heller Physical Therapy</td>
-                <td>2535 Camino Del Rio S Ste 225, San Diego, CA 92108</td>
-                <td class="phone">347-820-5291</td>
-                <td class="distance">2.0 miles</td>
-                <td>No reviews found - Limited online presence</td>
-                <td><span class="quality-badge quality-3">3</span></td>
-                <td><button class="markdown-toggle" onclick="toggleMarkdown('heller')">View Report</button>
-                    <div id="heller" class="markdown-content"></div></td>
-            </tr>
-            <tr>
-                <td>Developmental Therapy Center</td>
-                <td>3770 4th Ave, San Diego, CA 92103</td>
-                <td class="phone">619-291-3515</td>
-                <td class="distance">0.2 miles</td>
-                <td>Speech/OT clinic - no PT reviews found</td>
-                <td><span class="quality-badge quality-2">2</span></td>
-                <td><button class="markdown-toggle" onclick="toggleMarkdown('developmental')">View Report</button>
-                    <div id="developmental" class="markdown-content"></div></td>
+                <td>Community Care Physical Therapy</td>
+                <td>
+                    <a href="https://maps.google.com/?q=2650+Truxtun+Rd+Ste+202,+San+Diego,+CA+92106" target="_blank" class="address-link">2650 Truxtun Rd Ste 202, San Diego, CA 92106</a>
+                    <button class="map-toggle" onclick="toggleMap('community-care-map')">📍 Map</button>
+                    <div id="community-care-map" class="map-container">
+                        <iframe src="https://maps.google.com/maps?q=2650+Truxtun+Rd+Ste+202,+San+Diego,+CA+92106&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </td>
+                <td class="phone"><a href="tel:619-333-9182" class="phone-link">619-333-9182</a></td>
+                <td class="distance">3.2 miles</td>
+                <td>5.0/5 (2 reviews) - Personalized care</td>
+                <td><span class="quality-badge quality-8">8</span></td>
+                <td><button class="markdown-toggle" onclick="toggleMarkdown('community-care')">View Report</button>
+                    <div id="community-care" class="markdown-content"></div></td>
             </tr>
         </tbody>
     </table>
@@ -759,7 +771,55 @@ No physical therapy reviews found
 Closest location but may not offer PT services
 
 ## Summary
-Speech/OT clinic - no PT reviews found, may not provide physical therapy services`
+Speech/OT clinic - no PT reviews found, may not provide physical therapy services`,
+
+            'action': `# Action Physical Therapy and Rehab
+
+**Address:** 3033 5th Ave Ste 410, San Diego, CA 92103  
+**Phone:** 619-228-9668  
+**Distance:** 2.2 miles  
+**Quality:** 8/10
+
+## Research Results
+
+### healthgrades.com
+Rating 5.0(3) Daniel Walker, PT is a physical therapist in San Diego, CA. 5 Star Rating. Based on 3 reviews 5 Star Rating (3 reviews).
+
+### actionptrehab.com
+Daniel Walker - San Diego Physical Therapist. Location. 3033 5th Ave Suite 410. San Diego, CA 92103. Tel: 619-228-9668. Fax: 619-228-9685
+
+### facebook.com
+Rating 5.0(17) Testimonial - "I have been going to Action off and on for a couple of years for various issues. They are very kind, courteous, and prompt. The girls and the"
+
+### yelp.com
+Rating 5.0(13) Dr. Dan Walker is the real deal. And I can say this with conviction because not only am I a physical therapist, I've also been to four (yes FOUR) other PTs
+
+## Summary
+Excellent 5.0 rating across multiple platforms - Dr. Dan Walker highly praised by both patients and fellow PTs. 30+ total reviews with consistently perfect ratings.`,
+
+            'community-care': `# Community Care Physical Therapy
+
+**Address:** 2650 Truxtun Rd Ste 202, San Diego, CA 92106  
+**Phone:** 619-333-9182  
+**Distance:** 3.2 miles  
+**Quality:** 8/10
+
+## Research Results
+
+### yelp.com
+Community Care Physical Therapy. 5.0 (2 reviews). Physical Therapy · Occupational Therapy. 2.2 mi•. This is a placeholder. 2650 Truxtun Rd, Ste 202 San Diego
+
+### facebook.com
+Rating 5.0(2) Community Care Physical therapy is here to bridge the gap between where you are and where you want to be. We provide personalized physical therapy treatment
+
+### yelp.com reviews
+Rating 5.0(2) The staff is considerate friendly and thoughtful amongst other things. Their therapy teams are intuitive knowledgeable and innovative- I'm so grateful for
+
+### communitycarephysicaltherapy.com
+We love our customers, so feel free to visit during normal business hours. Community Care Physical Therapy. 2650 Truxtun Road #202, San Diego, California 92106
+
+## Summary
+Perfect 5.0 rating across platforms - Small practice with personalized care. Highly praised for knowledgeable and innovative therapy teams.`
         };
 
         function toggleMarkdown(providerId) {
@@ -780,6 +840,26 @@ Speech/OT clinic - no PT reviews found, may not provide physical therapy service
             } else {
                 element.style.display = 'none';
                 button.textContent = 'View Report';
+            }
+        }
+        
+        function toggleMap(mapId) {
+            const mapContainer = document.getElementById(mapId);
+            const button = mapContainer.previousElementSibling;
+            
+            if (mapContainer.style.display === 'none' || mapContainer.style.display === '') {
+                // Hide all other open maps
+                document.querySelectorAll('.map-container').forEach(el => {
+                    el.style.display = 'none';
+                    el.previousElementSibling.textContent = '📍 Map';
+                });
+                
+                // Show this one
+                mapContainer.style.display = 'block';
+                button.textContent = '📍 Hide Map';
+            } else {
+                mapContainer.style.display = 'none';
+                button.textContent = '📍 Map';
             }
         }
     </script>
